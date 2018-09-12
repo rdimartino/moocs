@@ -34,11 +34,11 @@
     var service = this;
 
     var buyItems = [
-        "10 cookies",
-        "10 crackers",
-        "10 apples",
-        "10 pumpkins",
-        "10 pineapples"
+        { name: "cookies", quantity: 10 },
+        { name: "crackers", quantity: 9 },
+        { name: "apples", quantity: 8 },
+        { name: "pumpkins", quantity: 7 },
+        { name: "pineapples", quantity: 6 }
       ],
       boughtItems = [];
 
