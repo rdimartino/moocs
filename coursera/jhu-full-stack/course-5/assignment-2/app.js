@@ -33,8 +33,14 @@
   function ShoppingListCheckOffService() {
     var service = this;
 
-    var buyItems = ["10 cookies", "10 cookies"],
-      boughtItems = ["10 cookies"];
+    var buyItems = [
+        "10 cookies",
+        "10 crackers",
+        "10 apples",
+        "10 pumpkins",
+        "10 pineapples"
+      ],
+      boughtItems = [];
 
     service.buyItem = function(itemIndex) {
       var item = buyItems.splice(itemIndex, 1).pop();
