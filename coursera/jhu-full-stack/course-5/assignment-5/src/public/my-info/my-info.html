@@ -1,0 +1,37 @@
+<div class="container">
+  <h2 id="sign-up-title" class="text-center">My Info</h2>
+  <div ng-if="!myInfoCtrl.signedUp" class="text-center">
+    Not Signed Up Yet.
+    <a ui-sref="public.signup">Sign up Now!</a>
+  </div>
+  <div ng-if="myInfoCtrl.signedUp">
+    <div class="text-center">
+      Your saved information.
+    </div>
+    <ul>
+      <li>
+        <strong>First name: </strong>{{myInfoCtrl.myInfo.first_name}}
+      </li>
+      <li>
+        <strong>Last name: </strong>{{myInfoCtrl.myInfo.last_name}}
+      </li>
+      <li>
+        <strong>Email: </strong>{{myInfoCtrl.myInfo.email}}
+      </li>
+      <li>
+        <strong>Phone: </strong>{{myInfoCtrl.myInfo.phone}}
+      </li>
+      <li>
+        <strong>Favorite dish: </strong>{{myInfoCtrl.myInfo.favorite_dish}}
+        <div ng-if="!myInfoCtrl.validFavorite">
+          <p>No such menu number exists</p>
+        </div>
+        <div ng-if="myInfoCtrl.validFavorite">
+          <span>{{myInfoCtrl.myFavorite.name}}</span>
+          <p>{{myInfoCtrl.myFavorite.description}}</p>
+          <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.myInfo.favorite_dish}}.jpg" alt="{{myInfoCtrl.myFavorite.name}}">
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

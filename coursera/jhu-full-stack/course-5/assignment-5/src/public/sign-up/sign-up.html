@@ -1,0 +1,65 @@
+<div class="container">
+  <h2 id="sign-up-title" class="text-center">Sign Up</h2>
+  <div class="text-center">
+    Sign up below to receive our bi-annual newsletter.
+  </div>
+  <fieldset id="sign-up-form">
+    <legend>Your Information</legend>
+    <form name='signUpForm' novalidate>
+      <input type="text" name="first_name" placeholder="First name"
+        ng-model="signUpCtrl.userInfo.first_name"
+        required>
+        <span ng-if="signUpForm.first_name.$invalid && signUpForm.first_name.$touched">
+          Must enter a valid first name
+        </span>
+        <br>
+
+      <input type="text" name="last_name" placeholder="Last name"
+        ng-model="signUpCtrl.userInfo.last_name"
+        required>
+        <span ng-if="signUpForm.last_name.$invalid && signUpForm.last_name.$touched">
+          Must enter a valid last name
+        </span>
+        <br>
+
+      <input type="email" name="email" placeholder="Email address"
+        ng-model="signUpCtrl.userInfo.email"
+        required>
+        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+          Must enter a valid email address: handle@domain
+        </span>
+        <br>
+
+      <input type="text" name="phone" placeholder="Phone number"
+        ng-model="signUpCtrl.userInfo.phone"
+        pattern="(\d{3})-(\d{3})-(\d{4})"
+        required>
+        <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+          Must enter a valid phone: ###-###-####
+        </span>
+        <br>
+
+      <input type="text" name="favorite_dish" placeholder="Favorite menu item"
+        ng-model="signUpCtrl.userInfo.favorite_dish"
+        required>
+        <span ng-if="signUpForm.favorite_dish.$invalid && signUpForm.favorite_dish.$touched">
+          Must enter a favorite dish
+        </span>
+        <span ng-if="signUpCtrl.invalid_favorite">
+          No such menu number exists
+        </span>
+        <br>
+
+      <button
+        ng-disabled="signUpForm.$invalid"
+        ng-click="signUpCtrl.submit()"
+        ng-class="{btn: true, 'btn-danger': signUpForm.$invalid, 'btn-success': !signUpForm.$invalid}"
+      >
+        Submit
+      </button>
+      <span ng-if="signUpCtrl.info_saved">
+        Your information has been saved
+      </span>
+    </form>
+  </fieldset>
+</div>
