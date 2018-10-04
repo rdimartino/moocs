@@ -41,11 +41,12 @@
 
       <input type="text" name="favorite_dish" placeholder="Favorite menu item"
         ng-model="signUpCtrl.userInfo.favorite_dish"
+        ng-change="signUpCtrl.checkInvalidFavorite()"
         required>
         <span ng-if="signUpForm.favorite_dish.$invalid && signUpForm.favorite_dish.$touched">
           Must enter a favorite dish
         </span>
-        <span ng-if="signUpCtrl.invalid_favorite">
+        <span ng-if="isInvalidFavorite">
           No such menu number exists
         </span>
         <br>
